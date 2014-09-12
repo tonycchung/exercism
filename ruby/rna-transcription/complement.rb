@@ -5,10 +5,10 @@ class Complement
     values = %w(C G A U)
     hsh = keys.zip(values).to_h
 
-    dna.split("").each_index do |i|
-      dna[i] = hsh[dna[i]]
+    dna.split("").inject("") do |result, element|
+      result << hsh[element]
+      result
     end
-    dna
   end
 
   def self.of_rna(rna)
@@ -16,9 +16,9 @@ class Complement
     values = %w(C G T A)
     hsh = keys.zip(values).to_h
 
-    rna.split("").each_index do |i|
-      rna[i] = hsh[rna[i]]
+    rna.split("").inject("") do |result, element|
+      result << hsh[element]
+      result
     end
-    rna
   end
 end
