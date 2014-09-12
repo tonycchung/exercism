@@ -1,30 +1,17 @@
 class Complement
+
   def self.of_dna(dna)
+    hsh = {G: 'C', C: 'G', T: 'A', A: 'U'}
     dna.split("").each_index do |i|
-      if dna[i] == 'G'
-        dna[i] = 'C'
-      elsif dna[i] == 'C'
-        dna[i] = 'G'
-      elsif dna[i] == 'T'
-        dna[i] = 'A'
-      elsif dna[i] == 'A'
-        dna[i] = 'U'
-      end
+      dna[i] = hsh[dna[i].to_sym]
     end
     dna
   end
 
   def self.of_rna(rna)
+    hsh = {G: 'C', C: 'G', A: 'T', U: 'A'}
     rna.split("").each_index do |i|
-      if rna[i] == 'G'
-        rna[i] = 'C'
-      elsif rna[i] == 'C'
-        rna[i] = 'G'
-      elsif rna[i] == 'U'
-        rna[i] = 'A'
-      elsif rna[i] == 'A'
-        rna[i] = 'T'
-      end
+      rna[i] = hsh[rna[i].to_sym]
     end
     rna
   end
