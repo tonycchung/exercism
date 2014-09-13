@@ -1,15 +1,9 @@
 class Raindrops
   def self.convert(num)
     result = ""
-    if num % 3 == 0
-      result << "Pling"
-    end
-    if num % 5 == 0
-      result << "Plang"
-    end
-    if num % 7 == 0
-      result << "Plong"
-    end
+    result << "Pling" if num % 3 == 0
+    result << "Plang" if num % 5 == 0
+    result << "Plong" if num % 7 == 0
     result.size > 0 ? result : num.to_s
   end
 end
