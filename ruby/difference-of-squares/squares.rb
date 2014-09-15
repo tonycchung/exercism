@@ -9,7 +9,6 @@ class Squares
   end
 
   def sum_of_squares
-
     @num.inject(0) { |result, element| result += element**2 }
   end
 
