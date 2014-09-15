@@ -1,21 +1,19 @@
 class Squares
 
   def initialize(num)
-    @num = num
+    @num = (1..num)
   end
 
   def square_of_sums
-    (1..@num).inject(:+)**2
+    @num.inject(:+)**2
   end
 
   def sum_of_squares
-    (1..@num).inject(0) do |result, element|
-      result += element**2
-      result
-    end
+
+    @num.inject(0) { |result, element| result += element**2 }
   end
 
   def difference
-    self.square_of_sums - self.sum_of_squares
+    square_of_sums - sum_of_squares
   end
 end
