@@ -1,13 +1,14 @@
-class Robot
+class Robot < NameTracker
   attr_reader :name
 
   def initialize
     @name = new_name
+    @@names[@name] = true
   end
 
   def new_name
     letters = ('A'..'Z').to_a[rand(26)] + ('A'..'Z').to_a[rand(26)]
-    numbers = rand(10).to_s + rand(10).to_s + rand(10).to_s
+    numbers = %w(10 10 10).map { |x| rand(x.to_i) }.join("")
     @name = "#{letters}#{numbers}"
   end
 
