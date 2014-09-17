@@ -6,9 +6,8 @@ class Robot
   end
 
   def new_name
-    letters = ""
+    letters, numbers = "", ""
     2.times { letters << ('A'..'Z').to_a[rand(26)] }
-    numbers = ""
     3.times { |x| numbers << (x + rand(10-x)).to_s }
     @name = "#{letters}#{numbers}"
   end
