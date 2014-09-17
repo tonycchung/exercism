@@ -17,12 +17,20 @@ class RobotTest < MiniTest::Unit::TestCase
   end
 
   def test_reset_name
-    skip
     robot = Robot.new
     name = robot.name
     robot.reset
     name2 = robot.name
     assert name != name2
     assert_match /\w{2}\d{3}/, name2
+  end
+
+  def test_no_same_name
+    skip
+    srand 1
+    name1 = Robot.new.name
+    srand 1
+    name2 = Robot.new.name
+    refute_equal name1, name2
   end
 end
