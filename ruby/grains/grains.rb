@@ -11,4 +11,5 @@ class Grains
   def total
     (1..@squares).inject(0) { |result, element| result += square(element) }
   end
+
 end
