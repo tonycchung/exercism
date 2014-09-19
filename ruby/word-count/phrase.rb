@@ -2,7 +2,6 @@ class Phrase
 
   def initialize(phrase)
     @phrase = phrase.scan(/(\w+'?\w*)/).flatten.map(&:downcase)
-    @hsh = {}
   end
 
   def word_count
