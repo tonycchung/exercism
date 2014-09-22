@@ -63,7 +63,7 @@ class FoodChainSong
   end
 
   def sing
-    verses(1, 8)
+    verses(1, @song.size)
   end
 
 end
