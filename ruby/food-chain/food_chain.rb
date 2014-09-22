@@ -56,7 +56,10 @@ class FoodChainSong
   end
 
   def verses(first, last)
-    (first..last).each { |verse| @song[verse] + "\n" }
+    (first..last).inject("") do |song, verse|
+      song += @song[verse] + "\n"
+      song
+    end
   end
 
   def sing
