@@ -5,9 +5,8 @@ class Phrase
   end
 
   def word_count
-    @phrase.inject({}) do |hsh, word|
+    @phrase.each_with_object({}) do |word, hsh|
       hsh[word] = @phrase.count(word) unless hsh[word]
-      hsh
     end
   end
 
