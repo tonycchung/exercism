@@ -1,5 +1,7 @@
 class Array
   def accumulate
-    self.map {|e| yield e}
+    self.each_with_index do |element, i|
+      self[i] = yield element
+    end
   end
 end
