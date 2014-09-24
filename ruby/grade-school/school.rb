@@ -7,7 +7,7 @@ class School
   end
 
   def add(student, grade)
-    @enrollment[grade] = (@grades[grade+1] << student)
+    @enrollment[grade] = (@grades[grade] << student)
     @enrollment[grade].sort!
   end
 
