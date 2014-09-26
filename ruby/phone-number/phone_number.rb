@@ -5,15 +5,22 @@ class PhoneNumber
   end
 
   def number
-
-    result = @number.scan(/\d+/).join
-    result.size == 10 ? result : @number.scan(/\w/).map {|x| x = 0}.join
-    # return @number.split("").map { |x| x = 0 }.join if @number.size < 10 || @number.size > 11
-
-    # if @number.size >= 10
-    #   @number.slice! 0 if @number.size == 11 && @number[0] == 1
-    # end
-    # @number
+    result = @number.scan(/\d\w?/).join
+    result.slice!(0) if result.size == 11 && result[0] == '1'
+    result.size == 10 ? result : "0000000000"
   end
 
+  def area_code
+    @number.slice(0, 3)
+  end
+
+  def to_s
+    result = number
+    result = result.split('')
+    result.insert(0, '(')
+    result.insert(4, ')')
+    result.insert(5, ' ')
+    result.insert(9, '-')
+    result.join
+  end
 end
