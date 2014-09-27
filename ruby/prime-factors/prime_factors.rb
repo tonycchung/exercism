@@ -2,16 +2,16 @@ class PrimeFactors
   require 'prime'
 
   def self.for(num)
-    primes = Prime.first(Math.sqrt(num))
+    number = num
+    primes = num > 9 ? Prime.first(num) : Prime.first(Math.sqrt(num))
     result = []
-    primes.each do |factor|
-      if number % factor == 0
-        result << factor
-        number /= factor
+    i = 0
+    while primes[i] <= number
+      if number % primes[i] == 0
+        result << primes[i]
+        number /= primes[i]
       else
-        until factor.prime?
-          factor +=1
-        end
+        i += 1
       end
     end
     result
