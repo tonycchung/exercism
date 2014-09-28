@@ -3,23 +3,18 @@ class PrimeFactors
 
   def self.for(num)
     number = num
-    primes = num > 9 ? Prime.first(num) : Prime.first(Math.sqrt(num))
     result = []
-    i = 0
-    while primes[i] <= number
-      if number % primes[i] == 0
-        result << primes[i]
-        number /= primes[i]
+    prime = 2
+    while prime <= number
+      if number % prime == 0
+        result << prime
+        number /= prime
       else
-        i += 1
+        prime += 1
+        prime += 1 until prime.prime?
       end
     end
     result
   end
-
-  # def self.for(num)
-  #   result = Prime.prime_division(num).flatten
-  #   result.each_with_index { |x, i| result[i] = nil if x == 1 }.compact
-  # end
 
 end
