@@ -1,7 +1,9 @@
 class Gigasecond
+  require 'date'
+  require 'time'
 
   def self.from(date)
-    date + (10**9 / 60 / 60 / 24)
+    (date.to_time + 10**9).to_date
   end
 
 end
