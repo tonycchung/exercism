@@ -2,7 +2,7 @@ class Array
 
   def keep
     result = []
-    self.each_with_index do |element, i|
+    self.each do |element|
       result << element if yield element
     end
     result
@@ -10,7 +10,7 @@ class Array
 
   def discard
     result = []
-    self.each_with_index do |element, i|
+    self.each do |element|
       result << element unless yield element
     end
     result
