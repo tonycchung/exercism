@@ -5,15 +5,15 @@ class Array
     self.each_with_index do |element, i|
       result << element if yield element
     end
-    return result
+    result
   end
 
   def discard
-    result = self
+    result = []
     self.each_with_index do |element, i|
-      result.delete(element) if yield element
+      result << element unless yield element
     end
-    return result
+    result
   end
 
  end
