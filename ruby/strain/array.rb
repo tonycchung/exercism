@@ -1,19 +1,15 @@
 class Array
 
   def keep
-    result = []
-    self.each do |element|
-      result << element if yield element
+    self.each_with_object([]) do |element, arry|
+      arry << element if yield element
     end
-    result
   end
 
   def discard
-    result = []
-    self.each do |element|
-      result << element unless yield element
+    self.each_with_object([]) do |element, arry|
+      arry << element unless yield element
     end
-    result
   end
 
  end
