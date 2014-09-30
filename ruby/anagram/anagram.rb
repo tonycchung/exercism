@@ -6,8 +6,9 @@ class Anagram
   def match(list)
     result = []
     list.each do |word|
-      next if word.split('') == @word
-      result << word if word.split('').map(&:downcase).sort == @word.sort
+      check = word.split('').map(&:downcase)
+      next if check == @word
+      result << word if check.sort == @word.sort
     end
     result
   end
