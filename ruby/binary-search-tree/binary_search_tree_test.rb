@@ -14,7 +14,6 @@ class BstTest < MiniTest::Unit::TestCase
   end
 
   def test_inserting_same
-    skip
     four = Bst.new 4
     four.insert 4
     assert_equal 4, four.data
@@ -22,7 +21,6 @@ class BstTest < MiniTest::Unit::TestCase
   end
 
   def test_inserting_right
-    skip
     four = Bst.new 4
     four.insert 5
     assert_equal 4, four.data
@@ -30,7 +28,6 @@ class BstTest < MiniTest::Unit::TestCase
   end
 
   def test_complex_tree
-    skip
     four = Bst.new 4
     four.insert 2
     four.insert 6
@@ -54,7 +51,6 @@ class BstTest < MiniTest::Unit::TestCase
   end
 
   def test_iterating_one_element
-    skip
     assert_equal [4], record_all_data(Bst.new 4)
   end
 

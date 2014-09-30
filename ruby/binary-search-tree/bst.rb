@@ -8,16 +8,19 @@ class Bst
   end
 
   def insert(node)
-    if node > @data && @left.nil?
-      @left = node
-    elsif node < @data && @right.nil?
-      @right = node
+    if node <= @data
+      @left.nil? ? @left = Bst.new(node) : @left.insert(node)
+    elsif node > @data
+      @right.nil? ? @right = Bst.new(node) : @right.insert(node)
     else
       raise 'Value already exists in tree'
     end
   end
 
-  def self.data
-    self
+  def each
+    @left.each unless @left.nil?
+    @right.each unless @right.nil?
+    data
   end
+
 end
