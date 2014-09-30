@@ -3,24 +3,20 @@ class Bst
 
   def initialize(data)
     @data = data
-    @left = nil
-    @right = nil
   end
 
   def insert(node)
     if node <= @data
       @left.nil? ? @left = Bst.new(node) : @left.insert(node)
-    elsif node > @data
-      @right.nil? ? @right = Bst.new(node) : @right.insert(node)
     else
-      raise 'Value already exists in tree'
+      @right.nil? ? @right = Bst.new(node) : @right.insert(node)
     end
   end
 
-  def each
-    @left.each unless @left.nil?
-    @right.each unless @right.nil?
-    data
+  def each(&block)
+    @left.each(&block) if @left
+    yield @data
+    @right.each(&block) if @right
   end
 
 end
