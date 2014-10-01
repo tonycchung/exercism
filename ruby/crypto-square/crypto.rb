@@ -13,7 +13,7 @@ class Crypto
   end
 
   def plaintext_segments
-    @text.scan(/\w{#{size}}/)
+    @text.scan(/\w{1,#{size}}/)
   end
 
 end
