@@ -49,7 +49,7 @@ class CryptoTest < MiniTest::Unit::TestCase
 
   def test_normalized_ciphertext
     crypto = Crypto.new('Madness, and then illumination.')
-    assert_equal 'msemo aanin dninn dlaet ltshu i', crypto.normalize_ciphertext
+    assert_equal 'msemoa anindn inndla etltsh ui', crypto.normalize_ciphertext
   end
 
   def test_more_normalized_ciphertext
