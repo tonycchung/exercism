@@ -1,10 +1,11 @@
 class Crypto
 
   def initialize(text)
-    @text = text.scan(/\w+/).map(&:downcase).join
+    @text = text
   end
 
   def normalize_plaintext
+    @text = @text.scan(/\w+/).map(&:downcase).join
     @text
   end
 
@@ -13,12 +14,12 @@ class Crypto
   end
 
   def plaintext_segments
-    @text.scan(/\w{1,#{size}}/)
+    normalize_plaintext.scan(/\w{1,#{size}}/)
   end
 
   def ciphertext
     result = []
-    plaintext_segments.size.times { |x| result << '' }
+    size.times { |x| result << '' }
     plaintext_segments.each do |segment|
       segment.split('').each_with_index do |char, i|
         result[i] << char
@@ -28,7 +29,7 @@ class Crypto
   end
 
   def normalize_ciphertext
-
+    ciphertext.scan(/\w{1,#{size}}/).join(' ')
   end
 
 end
