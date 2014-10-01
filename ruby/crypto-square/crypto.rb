@@ -16,4 +16,19 @@ class Crypto
     @text.scan(/\w{1,#{size}}/)
   end
 
+  def ciphertext
+    result = []
+    plaintext_segments.size.times { |x| result << '' }
+    plaintext_segments.each do |segment|
+      segment.split('').each_with_index do |char, i|
+        result[i] << char
+      end
+    end
+    result.join
+  end
+
+  def normalize_ciphertext
+
+  end
+
 end
