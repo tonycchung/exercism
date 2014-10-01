@@ -5,12 +5,11 @@ class Crypto
   end
 
   def normalize_plaintext
-    @text = @text.scan(/\w+/).map(&:downcase).join
-    @text
+    @text.scan(/\w+/).map(&:downcase).join
   end
 
   def size
-    Math.sqrt(@text.size).ceil
+    Math.sqrt(normalize_plaintext.size).ceil
   end
 
   def plaintext_segments
