@@ -28,7 +28,6 @@ class CryptoTest < MiniTest::Unit::TestCase
   end
 
   def test_plaintext_segments
-    skip
     crypto = Crypto.new('Never vex thine heart with idle woes')
     assert_equal ["neverv", "exthin", "eheart", "withid", "lewoes"], crypto.plaintext_segments
   end

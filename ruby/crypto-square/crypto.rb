@@ -12,4 +12,8 @@ class Crypto
     Math.sqrt(@text.size).ceil
   end
 
+  def plaintext_segments
+    @text.scan(/\w{#{size}}/)
+  end
+
 end
