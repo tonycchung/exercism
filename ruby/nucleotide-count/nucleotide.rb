@@ -1,6 +1,7 @@
 class Nucleotide
 
   def initialize(strand)
+    raise ArgumentError if strand.match(/[^AGCT]/)
     @strand = strand
   end
 
@@ -16,6 +17,11 @@ class Nucleotide
   end
 
   def histogram
-    %w(A T C G).zip()
+    hist = {'A' => 0, 'T' => 0, 'C' => 0, 'G' => 0}
+    hist.each do |k, v|
+      hist[k] = count(k)
+    end
+    hist
+  end
 
 end
