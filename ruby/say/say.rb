@@ -2,9 +2,9 @@ class Say
 
   def initialize(number)
     @number = number.to_s
-    @ones = %w(1 2 3 4 5 6 7 8 9).map(&:to_i).zip(%w(zero one two three four five six seven eight nine)).to_h
-    @tens = %w(1 2 3 4 5 6 7 8 9).map(&:to_i).zip%w(ten twenty thirty forty fifty sixty seventy eighty ninety)
-    @thousands = %w(hundred thousand million billion)
+    @ones = %w(0 1 2 3 4 5 6 7 8 9).map(&:to_i).zip(%w(zero one two three four five six seven eight nine)).to_h
+    @tens = %w(0 1 2 3 4 5 6 7 8 9).map(&:to_i).zip%w(ten twenty thirty forty fifty sixty seventy eighty ninety)).to_h
+    @thousands = %w(thousand million billion)
   end
 
   def chunk
