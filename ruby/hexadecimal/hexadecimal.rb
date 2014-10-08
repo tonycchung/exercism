@@ -7,7 +7,7 @@ class Hexadecimal
   end
 
   def to_decimal
-    return 0 if @hex.match(/[^abcdef][^\d]/)
+    return 0 if @hex.match(/[\D][^abcdef][\D]/)
 
     decimal = 0
     @hex.split('').each_with_index do |char, i|
