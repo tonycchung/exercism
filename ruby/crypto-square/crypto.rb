@@ -27,7 +27,7 @@ class Crypto
   end
 
   def normalize_ciphertext
-    ciphertext.scan(/\w{1,#{size}}/).join(' ')
+    ciphertext.scan(/\w{1,5}/).join(' ')
   end
 
 end
