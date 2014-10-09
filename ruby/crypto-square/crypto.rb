@@ -5,7 +5,7 @@ class Crypto
   end
 
   def normalize_plaintext
-    @text.scan(/\w+/).map(&:downcase).join
+    @text.gsub(/\s*\W*/, '').downcase
   end
 
   def size
@@ -17,10 +17,9 @@ class Crypto
   end
 
   def ciphertext
-    result = []
-    size.times { |x| result << '' }
+    result = Array.new(size) { '' }
     plaintext_segments.each do |segment|
-      segment.split('').each_with_index do |char, i|
+      segment.chars.each_with_index do |char, i|
         result[i] << char
       end
     end
