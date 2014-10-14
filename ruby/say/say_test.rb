@@ -2,28 +2,36 @@ require 'minitest/autorun'
 require_relative 'say'
 
 class SayTest < MiniTest::Unit::TestCase
+  def test_chunk
+    assert_equal [1, 234, 567], Say.new(1234567).chunk
+  end
+
+  def test_half_english_small
+    assert_equal '2 thousand 345', Say.new(2345).half_english
+  end
+
+  def test_half_english_large
+    assert_equal '12 billion 132 million 234 thousand 567', Say.new(12132234567).half_english
+  end
+
   def test_0
     assert_equal 'zero', Say.new(0).in_english
   end
 
   def test_one
-    skip
     assert_equal 'one', Say.new(1).in_english
   end
 
   def test_14
-    skip
     assert_equal 'fourteen', Say.new(14).in_english
   end
 
   def test_twenty
-    skip
     # This really shouldn't be twenty-zero
     assert_equal 'twenty', Say.new(20).in_english
   end
 
   def test_twenty_two
-    skip
     assert_equal 'twenty-two', Say.new(22).in_english
   end
 

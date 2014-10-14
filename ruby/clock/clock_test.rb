@@ -31,6 +31,11 @@ class ClockTest < MiniTest::Unit::TestCase
     assert_equal "08:30", clock.to_s
   end
 
+  def test_subtract_minutes_2
+    clock = Clock.at(10, 30) - 30
+    assert_equal "10:00", clock.to_s
+  end
+
   def test_equivalent_clocks
     clock1 = Clock.at(15, 37)
     clock2 = Clock.at(15, 37)

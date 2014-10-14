@@ -23,9 +23,9 @@ class Clock
   end
 
   def -(min)
-    new_time = min.divmod(-60)
-    hours = @hours + new_time[0]
-    minutes = @minutes + new_time[1]
+    new_time = min.divmod(60)
+    hours = @hours - new_time[0]
+    minutes = @minutes - new_time[1]
     self.class.at(hours, minutes)
   end
 
