@@ -24,23 +24,29 @@ class Meetup
           @date = Date.new(@year, @month, num)
           break if @date.send("#{weekday.to_s}?")
         end
+
       when :second
         (8..14).each do |num|
           @date = Date.new(@year, @month, num)
           break if @date.send("#{weekday.to_s}?")
         end
+
       when :third
         (15..21).each do |num|
           @date = Date.new(@year, @month, num)
           break if @date.send("#{weekday.to_s}?")
         end
+
       when :fourth
         (22..29).each do |num|
           @date = Date.new(@year, @month, num)
           break if @date.send("#{weekday.to_s}?")
         end
+
       when :last
-        (25..31).each do |num|
+        # If the month is february, the last week will be between the 22nd and 28th. Otherwise between the 25th and 31st.
+        start = @month == 2 ? 22 : 25
+        (start..31).each do |num|
           @date = Date.new(@year, @month, num)
           break if @date.send("#{weekday.to_s}?")
         end
@@ -50,6 +56,3 @@ class Meetup
   end
 
 end
-
-#weekday = mony-fri
-#schedule = first, second, third, fourth, last, teenth
