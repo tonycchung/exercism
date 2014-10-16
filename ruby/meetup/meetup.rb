@@ -35,7 +35,12 @@ class Meetup
           break if @date.send("#{weekday.to_s}?")
         end
       when :fourth
-        (22..31).each do |num|
+        (22..29).each do |num|
+          @date = Date.new(@year, @month, num)
+          break if @date.send("#{weekday.to_s}?")
+        end
+      when :last
+        (25..31).each do |num|
           @date = Date.new(@year, @month, num)
           break if @date.send("#{weekday.to_s}?")
         end
